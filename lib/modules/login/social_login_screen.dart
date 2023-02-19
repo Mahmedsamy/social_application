@@ -25,7 +25,7 @@ class SocialLoginScreen extends StatelessWidget {
         {
           if(state is SocialLoginErrorState)
           {
-          ShowToast(text: state.error, state: ToastStates.ERROR,);
+          //ShowToast(text: state.error, state: ToastStates.ERROR,);
           }
         },
         builder: (context, state) {

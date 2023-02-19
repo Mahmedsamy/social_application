@@ -10,14 +10,15 @@ class SocialRegisterScreen extends StatelessWidget {
 
   SocialRegisterScreen({Key? key}) : super(key: key);
 
-
-
   var formKey = GlobalKey<FormState>();
-  var nameController = TextEditingController();
-  var emailController = TextEditingController();
-  var passController = TextEditingController();
-  var phoneController = TextEditingController();
 
+  var nameController = TextEditingController();
+
+  var emailController = TextEditingController();
+
+  var passController = TextEditingController();
+
+  var phoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +50,14 @@ class SocialRegisterScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Register',
-                          style: Theme.of(context).textTheme.headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         const SizedBox(
                           height: 20.0,
                         ),
                         Text(
                           'Register now to communicate with friends',
-                          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             color: Colors.grey,
                           ),
                         ),
