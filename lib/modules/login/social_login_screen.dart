@@ -1,6 +1,8 @@
+import 'package:Social_application/layout/social_layout.dart';
 import 'package:Social_application/modules/login/cubit.dart';
 import 'package:Social_application/modules/login/state.dart';
 import 'package:Social_application/modules/register/social_register_screen.dart';
+import 'package:Social_application/network/local/cache_helper.dart';
 import 'package:Social_application/shared/components.dart';
 import 'package:flutter/material.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
@@ -25,7 +27,23 @@ class SocialLoginScreen extends StatelessWidget {
         {
           if(state is SocialLoginErrorState)
           {
-          //ShowToast(text: state.error, state: ToastStates.ERROR,);
+            showToast(
+            message: state.error,
+            states: ToastStates.ERROR,);
+          }
+          if (state is SocialLoginSuccessState)
+          {
+            CacheHelper.saveData(
+              key: 'uId',
+              value: state.uId,
+            ).then( (value) {
+
+
+              navigateAndFinish(
+                context,
+                const SocialLayout(),
+              );
+            });
           }
         },
         builder: (context, state) {
@@ -86,10 +104,10 @@ class SocialLoginScreen extends StatelessWidget {
                             textInputType: TextInputType.visiblePassword,
                             onSubmit: (value) {
                               if (formKey.currentState!.validate()) {
-                                // SocialLoginCubit.get(context).userLogin(
-                                //   email: emailController.text,
-                                //   password: passController.text,
-                                // );
+                                SocialLoginCubit.get(context).userLogin(
+                                  email: emailController.text,
+                                  password: passController.text,
+                                );
                               }
                             },
                             //ispassword: true,
@@ -109,10 +127,10 @@ class SocialLoginScreen extends StatelessWidget {
                               defaultButton(
                                 function: () {
                                   if (formKey.currentState!.validate()) {
-                                    // SocialLoginCubit.get(context).userLogin(
-                                    //   email: emailController.text,
-                                    //   password: passController.text,
-                                    // );
+                                    SocialLoginCubit.get(context).userLogin(
+                                      email: emailController.text,
+                                      password: passController.text,
+                                    );
                                   }
                                 },
                                 text: 'login',

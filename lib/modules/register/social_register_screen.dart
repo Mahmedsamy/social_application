@@ -1,3 +1,4 @@
+import 'package:Social_application/layout/social_layout.dart';
 import 'package:Social_application/modules/register/cubit.dart';
 import 'package:Social_application/modules/register/state.dart';
 import 'package:Social_application/shared/components.dart';
@@ -20,6 +21,8 @@ class SocialRegisterScreen extends StatelessWidget {
 
   var phoneController = TextEditingController();
 
+  var isEmailVerified = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
 
@@ -29,11 +32,15 @@ class SocialRegisterScreen extends StatelessWidget {
       child: BlocConsumer<SocialRegisterCubit, SocialRegisterState>(
         listener: (context, state)
         {
-          if(state is SocialRegisterSuccessState)
+          if(state is SocialCreateUserSuccessState)
           {
+          navigateAndFinish(context,  const SocialLayout());
 
+            }else if(state is SocialRegisterErrorState)
+              {
+                showToast(message: "register error is ${state.error}", states: ToastStates.ERROR);
 
-            }
+              }
         },
         builder: (context, state) {
 
@@ -153,6 +160,8 @@ class SocialRegisterScreen extends StatelessWidget {
                                   email: emailController.text,
                                   password: passController.text,
                                   phone: phoneController.text,
+                                    isEmailVerified: isEmailVerified.text,
+
                                 );
                               }
 
