@@ -15,26 +15,35 @@ class SocialLayout extends StatelessWidget {
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Row(
+          appBar: AppBar(
+            title:const Text("Social Main"),
+          ),
+          body: Column(
+            children: [
+              Container(
+                //color:Colors.amber.withOpacity(0.2),
+                height: 50.0,
+                child: Row(
                   children: [
-                    const Text(
-                      'ples verify your email',
+                    const Expanded(
+                      child:  Text(
+                        'ples verify your email',
+                      ),
                     ),
                     const SizedBox(
-                        width: 20.0 ),
-                    defaultButton(
-                        function: () {},
-                        text: 'send email verification',
-                        isUpperCase: true  ),
+                      width: 50.0,
+                    ),
+                       defaultButton(
+                        width: 150.0,
+                          function: () {},
+                          text: 'send ',
+                          isUpperCase: true
+                       ),
                   ],
                 ),
-              ],
-            ),
-          ),
+              ),
+            ],
+          )
         );
       },
     );
