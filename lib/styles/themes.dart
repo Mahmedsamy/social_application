@@ -35,7 +35,7 @@ ThemeData darkTheme = ThemeData(
         fontWeight: FontWeight.bold,
         fontSize: 20.0,
       ),
-      backwardsCompatibility: false,
+     // backwardsCompatibility: false,
       systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: HexColor('333739'),
           statusBarBrightness: Brightness.light),
@@ -74,7 +74,7 @@ ThemeData lightTheme = ThemeData(
         fontWeight: FontWeight.w600,
         fontSize: 20.0,
       ),
-      backwardsCompatibility: false,
+      //backwardsCompatibility: false,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.white,
         statusBarBrightness: Brightness.dark,

@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "872021848666",
-    "project_id": "Social-app-92e79",
-    "storage_bucket": "Social-app-92e79.appspot.com"
+    "project_number": "567084612708",
+    "project_id": "social-app-3a4b1",
+    "storage_bucket": "social-app-3a4b1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:872021848666:android:5728174144e215adff1e63",
+        "mobilesdk_app_id": "1:567084612708:android:1b397c8f57c8da23e5b371",
         "android_client_info": {
           "package_name": "com.example.Social_application"
         }
       },
       "oauth_client": [
         {
-          "client_id": "872021848666-308m9ihnummia3d2cau4lokta1vvua3n.apps.googleusercontent.com",
+          "client_id": "567084612708-p49endcuri1muehj3393vml9aabprt5a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.Social_application",
@@ -22,21 +22,28 @@
           }
         },
         {
-          "client_id": "872021848666-d51cgok1r7q7vmelh6tg2sf5gm2kmttq.apps.googleusercontent.com",
+          "client_id": "567084612708-cad7f8taibs7ih57i0u25j0vhukhu7ll.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBldKYJyoiYk7wtsIxkhhNyRkEmkTo9jBI"
+          "current_key": "AIzaSyAr6jGRF62RWonDm7NTQff0nK6lRxEEXB4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "872021848666-d51cgok1r7q7vmelh6tg2sf5gm2kmttq.apps.googleusercontent.com",
+              "client_id": "567084612708-cad7f8taibs7ih57i0u25j0vhukhu7ll.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "567084612708-evutuhvqk3lva9jqjd9cn4hdmtfdgg3m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.SocialApplication"
+              }
             }
           ]
         }

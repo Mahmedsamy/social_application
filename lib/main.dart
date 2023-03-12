@@ -1,11 +1,10 @@
-
-
 import 'package:Social_application/layout/cubit/cubit.dart';
 import 'package:Social_application/layout/social_layout.dart';
 import 'package:Social_application/modules/login/social_login_screen.dart';
 import 'package:Social_application/network/local/cache_helper.dart';
 import 'package:Social_application/network/remote/dio_helper.dart';
 import 'package:Social_application/shared/bloc_observer.dart';
+import 'package:Social_application/shared/constants.dart';
 import 'package:Social_application/shared/cubit/app_cubit.dart';
 import 'package:Social_application/shared/cubit/states.dart';
 import 'package:Social_application/styles/themes.dart';
@@ -26,22 +25,22 @@ void main() async {
 
    bool isDark = CacheHelper.getData (key: 'isDark')??false;
 
-    Widget widget = const SocialLayout();
+    Widget   widget;   //= const SocialLayout();
 
  // bool onBoarding = CacheHelper.getData (key: 'onBoarding')??false;
 
-   //String uId = CacheHelper.getData(key: 'uId')??'';
-  // debugPrint(token);
+    uId = CacheHelper.getData(key: 'uId')??'';
+   debugPrint(token);
 
 
 
 
-   // if (uId.isNotEmpty)
-   //   {
-   //     widget = const SocialLayout();
-   //   }else{
-   //   widget = SocialLoginScreen();
-   // }
+    if (uId.isNotEmpty)
+      {
+        widget = const SocialLayout();
+      }else{
+      widget = SocialLoginScreen();
+    }
 
 
 
@@ -59,7 +58,7 @@ class MyApp extends StatelessWidget {
 
   const MyApp({super.key,
     required this.isDark,
-    required this.widget
+    required this.widget,
   });
 
 
@@ -71,8 +70,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (BuildContext context) => AppCubit()),
           BlocProvider(
-           create: (BuildContext context) => SocailCubit()
-             // ..getUserData() ,
+            lazy: true,
+           create: (BuildContext context) => SocialCubit(),
 
          ),
       ],

@@ -4,6 +4,7 @@ import 'package:Social_application/modules/login/state.dart';
 import 'package:Social_application/modules/register/social_register_screen.dart';
 import 'package:Social_application/network/local/cache_helper.dart';
 import 'package:Social_application/shared/components.dart';
+import 'package:Social_application/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,11 +34,11 @@ class SocialLoginScreen extends StatelessWidget {
           }
           if (state is SocialLoginSuccessState)
           {
+            uId =state.uId;
             CacheHelper.saveData(
               key: 'uId',
               value: state.uId,
             ).then( (value) {
-
 
               navigateAndFinish(
                 context,
