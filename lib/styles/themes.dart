@@ -5,14 +5,14 @@ import 'package:hexcolor/hexcolor.dart';
 import '../shared/constants.dart';
 
 ThemeData darkTheme = ThemeData(
-    textTheme: const TextTheme(
-      bodyText1: TextStyle(
+    textTheme:  const TextTheme(
+      bodyLarge: TextStyle(
         fontFamily: 'Jannah',
         fontSize: 18.0,
         fontWeight: FontWeight.w600,
         color: Colors.white,
       ),
-      subtitle1: TextStyle(
+      titleMedium: TextStyle(
         fontFamily: 'Jannah',
         fontSize: 14.0,
         height: 1.5,
@@ -45,14 +45,14 @@ ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: HexColor('333739'));
 
 ThemeData lightTheme = ThemeData(
-    textTheme: const TextTheme(
-      bodyText1: TextStyle(
+    textTheme:  const TextTheme(
+      bodyLarge: TextStyle(
         fontFamily: 'Jannah',
         fontSize: 18.0,
         fontWeight: FontWeight.w600,
         color: Colors.black,
       ),
-      subtitle1: TextStyle(
+      titleMedium: TextStyle(
         fontFamily: 'Jannah',
         fontSize: 14.0,
         height: 1.5,
