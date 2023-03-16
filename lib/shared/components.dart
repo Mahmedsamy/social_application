@@ -7,9 +7,9 @@ import '../styles/colors.dart';
 Widget defaultButton(
     {double width = double.infinity,
       Color background = defaultColor,
-      double height = 50,
+      double height = 40,
       required VoidCallback? function,
-      required String text, required bool isUpperCase}) =>
+      required String text,  bool isUpperCase=true}) =>
     Container(
       width: width,
       height: height,

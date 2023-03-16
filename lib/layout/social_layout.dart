@@ -1,5 +1,7 @@
 import 'package:Social_application/layout/cubit/cubit.dart';
 import 'package:Social_application/layout/cubit/state.dart';
+import 'package:Social_application/modules/new_post/new_posts.dart';
+import 'package:Social_application/shared/components.dart';
 import 'package:Social_application/styles/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +12,14 @@ class SocialLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SocialCubit, SocialStates>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is SocialNewPostsState) {
+          navigateTo(
+            context,
+            const NewPostsScreen(),
+          );
+        }
+      },
       builder: (context, state) {
         var cubit = SocialCubit.get(context);
         if (state is SocialInitialState) {
@@ -55,6 +64,12 @@ class SocialLayout extends StatelessWidget {
                   IconBroken.Chat,
                 ),
                 label: 'Chats',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  IconBroken.Paper_Upload,
+                ),
+                label: 'posts',
               ),
               BottomNavigationBarItem(
                 icon: Icon(
