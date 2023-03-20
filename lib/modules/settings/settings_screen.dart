@@ -1,6 +1,8 @@
 import 'package:Social_application/layout/cubit/cubit.dart';
 import 'package:Social_application/layout/cubit/state.dart';
+import 'package:Social_application/modules/edit_profile_screen/edit_profile.dart';
 import 'package:Social_application/shared/components.dart';
+import 'package:Social_application/styles/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,7 +14,7 @@ class SettingsScreen extends StatelessWidget {
     return BlocConsumer<SocialCubit, SocialStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        var userModel = SocialCubit.get(context).model;
+        var userModel = SocialCubit.get(context).usermodel;
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -23,22 +25,22 @@ class SettingsScreen extends StatelessWidget {
                     alignment: AlignmentDirectional.bottomCenter,
                     children: [
                       Align(
+                        alignment: AlignmentDirectional.topCenter,
                         child: Container(
                           width: double.infinity,
                           height: 150.0,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
                                 topRight: Radius.circular(4.0)),
                             image: DecorationImage(
                               image: NetworkImage(
-                                'https://img.freepik.com/free-photo/full-shot-travel-concept-with-landmarks_23-2149153258.jpg?3&w=996&t=st=1678798627~exp=1678799227~hmac=0f158997e20ee65e0bb05b4c07ea49f86e89db53096f1d783ce4ee2aa99420f6',
+                                '${userModel!.cover}',
                               ),
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
-                        alignment: AlignmentDirectional.topCenter,
                       ),
                       CircleAvatar(
                         radius: 50.0,
@@ -47,20 +49,20 @@ class SettingsScreen extends StatelessWidget {
                         child:  CircleAvatar(
                           radius: 45.0,
                           backgroundImage: NetworkImage(
-                              '${userModel!.image}'
+                              '${userModel.image}'
                           ),
                         ),
                       ),
                     ]),
               ),
               Text(
-                'Mohamed samy',
+                '${userModel.name}',
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: Colors.orange,
                     ),
               ),
               Text(
-                ' bio ...',
+                ' ${userModel.bio}',
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       color: Colors.grey[600],
                     ),
@@ -103,7 +105,7 @@ class SettingsScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             Text(
-                              ' 100',
+                              ' 260',
                               style: Theme.of(context)
                                   .textTheme
                                   .titleSmall!
@@ -112,7 +114,7 @@ class SettingsScreen extends StatelessWidget {
                                   ),
                             ),
                             Text(
-                              ' posts ',
+                              ' photos ',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
@@ -130,7 +132,7 @@ class SettingsScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             Text(
-                              ' 100',
+                              ' 10k',
                               style: Theme.of(context)
                                   .textTheme
                                   .titleSmall!
@@ -139,7 +141,7 @@ class SettingsScreen extends StatelessWidget {
                                   ),
                             ),
                             Text(
-                              ' posts ',
+                              ' Follwers ',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
@@ -157,7 +159,7 @@ class SettingsScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             Text(
-                              ' 100',
+                              ' 70',
                               style: Theme.of(context)
                                   .textTheme
                                   .titleSmall!
@@ -166,7 +168,7 @@ class SettingsScreen extends StatelessWidget {
                                   ),
                             ),
                             Text(
-                              ' posts ',
+                              ' Following ',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
@@ -185,11 +187,21 @@ class SettingsScreen extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: defaultButton(
-                        function: () {},
-                        text: 'Edit profile',
-                        isUpperCase: true),
+                    child: OutlinedButton(onPressed: () {},
+                    child: const Text(
+                      'Add Photo',
+                    ),),
+
                   ),
+                  const SizedBox(
+                    width: 10.0,
+                  ),
+                  OutlinedButton(onPressed: () {
+                    navigateTo(context, EditProfileScreen(),);
+                  },
+                    child: const Icon(
+                      IconBroken.Edit,
+                    )),
                 ],
               ),
             ],

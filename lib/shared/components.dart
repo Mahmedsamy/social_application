@@ -1,20 +1,21 @@
+import 'package:Social_application/styles/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../styles/colors.dart';
 
-
 Widget defaultButton(
-    {double width = double.infinity,
-      Color background = defaultColor,
-      double height = 40,
-      required VoidCallback? function,
-      required String text,  bool isUpperCase=true}) =>
+        {double width = double.infinity,
+        Color background = defaultColor,
+        double height = 40,
+        required VoidCallback? function,
+        required String text,
+        bool isUpperCase = true}) =>
     Container(
       width: width,
       height: height,
-
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: background),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5), color: background),
       child: MaterialButton(
         onPressed: function,
         child: Text(
@@ -24,8 +25,8 @@ Widget defaultButton(
       ),
     );
 
-  Widget defaultTextButton(
-    {required VoidCallback? onPress, required String text}) =>
+Widget defaultTextButton(
+        {required VoidCallback? onPress, required String text}) =>
     TextButton(
       onPressed: onPress,
       child: Text(
@@ -33,20 +34,20 @@ Widget defaultButton(
       ),
     );
 
-  Widget defaultTextFormField(
-    {required TextEditingController controller,
-      required TextInputType textInputType,
-      ValueChanged? onSubmit,
-      ValueChanged? onChanged,
-      FormFieldValidator? validate,
-      required String label,
-      required IconData prefix,
-      bool obscure = false,
-      VoidCallback? onTab,
-      IconData? suffixIcon,
-      bool isClickable = true,
-      VoidCallback? onPressSuffix,
-      TextInputAction textInputAction = TextInputAction.next}) =>
+Widget defaultTextFormField(
+        {required TextEditingController controller,
+        required TextInputType textInputType,
+        ValueChanged? onSubmit,
+        ValueChanged? onChanged,
+        FormFieldValidator? validate,
+        required String label,
+        required IconData prefix,
+        bool obscure = false,
+        VoidCallback? onTab,
+        IconData? suffixIcon,
+        bool isClickable = true,
+        VoidCallback? onPressSuffix,
+        TextInputAction textInputAction = TextInputAction.next}) =>
     TextFormField(
       controller: controller,
       keyboardType: textInputType,
@@ -62,7 +63,7 @@ Widget defaultButton(
           border: const OutlineInputBorder(),
           prefixIcon: Icon(prefix),
           suffixIcon:
-          IconButton(onPressed: onPressSuffix, icon: Icon(suffixIcon))),
+              IconButton(onPressed: onPressSuffix, icon: Icon(suffixIcon))),
       style: const TextStyle(fontSize: 20.0),
     );
 
@@ -182,13 +183,13 @@ Widget defaultButton(
 //     );
 
 Widget divider({padding = const EdgeInsets.all(10)}) => Padding(
-  padding: padding,
-  child: Container(
-    width: double.infinity,
-    height: 1,
-    color: Colors.grey[300],
-  ),
-);
+      padding: padding,
+      child: Container(
+        width: double.infinity,
+        height: 1,
+        color: Colors.grey[300],
+      ),
+    );
 
 // Widget articleBuilder(list, context, {isSearch = false}) => ConditionalBuilder(
 //   condition: list.length > 0,
@@ -204,20 +205,40 @@ Widget divider({padding = const EdgeInsets.all(10)}) => Padding(
 //   ),
 // );
 
+AppBar defaultAppBar({
+  required BuildContext context,
+  String? title,
+  List<Widget>? actions,
+}) =>
+    AppBar(
+      leading: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: const Icon(
+          IconBroken.Arrow___Left_2,
+        ),
+      ),
+      titleSpacing: 5.0,
+      title: Text(
+        title!,
+      ),
+      actions: actions,
+    );
+
 void navigateTo(context, widget) =>
     Navigator.push(context, MaterialPageRoute(builder: (context) => widget));
 
 void navigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
     context, MaterialPageRoute(builder: (context) => widget), (route) => false);
 
- void showToast({required String message, required ToastStates states}) =>
-     Fluttertoast.showToast(
-         msg: message,
-         toastLength: Toast.LENGTH_LONG,
-         gravity: ToastGravity.CENTER,
-         fontSize: 16.0,
-         timeInSecForIosWeb: 5,
-
+void showToast({required String message, required ToastStates states}) =>
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.CENTER,
+        fontSize: 16.0,
+        timeInSecForIosWeb: 5,
         backgroundColor: chooseToastColor(states));
 
 enum ToastStates { SUCCESS, ERROR, WARNING }

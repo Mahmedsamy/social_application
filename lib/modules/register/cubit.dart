@@ -57,9 +57,10 @@ class SocialRegisterCubit extends Cubit<SocialRegisterState> {
         phone: phone,
         uId: uId,
         bio: 'write your bio ...',
-
+      cover: 'https://img.freepik.com/free-photo/full-shot-travel-concept-with-landmarks_23-2149153258.jpg?3&w=1480&t=st=1678798627~exp=1678799227~hmac=0f158997e20ee65e0bb05b4c07ea49f86e89db53096f1d783ce4ee2aa99420f6',
       image: 'https://img.freepik.com/free-photo/full-shot-travel-concept-with-landmarks_23-2149153258.jpg?3&w=1480&t=st=1678798627~exp=1678799227~hmac=0f158997e20ee65e0bb05b4c07ea49f86e89db53096f1d783ce4ee2aa99420f6',
-        isEmailVerified : false,
+
+      isEmailVerified : false,
     );
 
     debugPrint("FirebaseFirestore outside");

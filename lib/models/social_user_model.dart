@@ -5,6 +5,7 @@ class SocialUserModel
    String? phone;
    String? uId;
    String? image;
+   String? cover;
    String? bio;
    bool? isEmailVerified;
 
@@ -15,6 +16,7 @@ class SocialUserModel
     required this.phone,
     required this.uId,
     required this.image,
+    required this.cover,
     required this.bio,
     required this.isEmailVerified,
 });
@@ -25,6 +27,7 @@ class SocialUserModel
     name = json['name'];
     phone = json['phone'];
     uId = json['uId'];
+    cover = json['cover'];
     image = json['image'];
     bio = json['bio'];
 
@@ -37,6 +40,10 @@ class SocialUserModel
       'name' : name,
       'email' : email,
       'phone' : phone,
+      'uId' : uId,
+      'image' : image,
+      'cove' : cover,
+      'bio' : bio,
       'isEmailVerified' : isEmailVerified,
     };
   }
