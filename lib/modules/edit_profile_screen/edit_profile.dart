@@ -1,15 +1,34 @@
+import 'dart:html';
+
 import 'package:Social_application/layout/cubit/cubit.dart';
 import 'package:Social_application/layout/cubit/state.dart';
 import 'package:Social_application/shared/components.dart';
 import 'package:Social_application/styles/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 class EditProfileScreen extends StatelessWidget {
    EditProfileScreen({Key? key}) : super(key: key);
 
   var nameController = TextEditingController();
   var bioController = TextEditingController();
+
+  // File image;
+  // var picker = ImagePicker();
+  //
+  // Future getImage() async {
+  //   final pickedfile = await picker.getImage(source: ImageSource.gallery);
+  //
+  //   setState((){
+  //     if (pickedfile != null)
+  //       _image = File((fileBits), fileName);
+  //     {
+  //
+  //       }
+  //   });
+  //
+  // }
 
   @override
   Widget build(BuildContext context) {
